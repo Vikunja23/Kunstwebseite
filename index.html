@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Künstlerin XY</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -31,7 +32,9 @@
     <section class="galerie">
       <h2>Galerie</h2>
       <div class="galerie-grid">
-        <img src="images/bild1.jpg" alt="Bild 1">
+        <a href="images/bild1.jpg" data-lightbox="galerie" data-title="Titel: Sonnenuntergang, Größe: 30x40 cm, Öl auf Leinwand">
+        <img src="images/bild1.jpg" alt="Sonnenuntergang" width="300" />
+        </a>
         <img src="images/bild2.jpg" alt="Bild 2">
         <img src="images/bild3.jpg" alt="Bild 3">
         <!-- weitere Bilder -->
@@ -43,9 +46,10 @@
   <footer>
     <p><a href="#">Impressum</a></p>
   </footer>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
+
 
 
 
