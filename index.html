@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamas Webseite</title>
-    <style>
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Mamas Webseite</h1>
-      <nav>
-        <button onclick="showSection('countries')">Bilder</button>
-        <button onclick="loadQuiz()">Über die Künstlerin/button>
-        <button onclick="showSection('contact')">Kontakt</button>
-      </nav>
-    </header>
-    </body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Künstlerin XY</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Bilder nach Kategorie</a></li>
+        <li><a href="#">Über die Künstlerin</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero-Bereich -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Willkommen auf der Seite der Künstlerin XY</h1>
+    </div>
+  </section>
+
+  <!-- Galerie-Bereich -->
+  <main>
+    <section class="galerie">
+      <h2>Galerie</h2>
+      <div class="galerie-grid">
+        <img src="images/bild1.jpg" alt="Bild 1">
+        <img src="images/bild2.jpg" alt="Bild 2">
+        <img src="images/bild3.jpg" alt="Bild 3">
+        <!-- weitere Bilder -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p><a href="#">Impressum</a></p>
+  </footer>
+
+</body>
 </html>
+
+
