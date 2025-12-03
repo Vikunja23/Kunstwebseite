@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- NEUER HEADER -->
+  <!-- HEADER -->
   <header class="header">
     <nav class="navbar">
       <a href="index.html" class="logo">NATALIA</a>
@@ -22,78 +22,64 @@
     </nav>
   </header>
 
-  <!-- NEUE SLIDESHOW (anstatt Hero) -->
-  <section class="slideshow">
+  <!-- NEUES MULTI-CAROUSEL -->
+  <section class="carousel-section">
+    <h2>Galerie</h2>
 
-    <div class="slide active">
-      <img src="images/Blume_1.jpg" alt="Blume_1">
-      <div class="caption">
-        <h3>Blume_1</h3>
-        <p>70×50 cm · Öl auf Leinwand · 220€</p>
-      </div>
-    </div>
+    <div class="carousel-container">
+      <button class="carousel-btn prev">&#10094;</button>
 
-    <div class="slide">
-      <img src="images/Vogel_1.jpg" alt="Vogel_1">
-      <div class="caption">
-        <h3>Vogel_1</h3>
-        <p>50×40 cm · Acryl · 180€</p>
-      </div>
-    </div>
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <img src="images/bild1.jpg" alt="Bild 1">
+          <p class="caption">Blume 1 — 70×50 cm · Öl · 220€</p>
+        </div>
 
-    <div class="slide">
-      <img src="images/Blume_3.jpg" alt="Blume_3">
-      <div class="caption">
-        <h3>Blume_3</h3>
-        <p>60×45 cm · Öl · 250€</p>
-      </div>
-    </div>
+        <div class="carousel-item">
+          <img src="images/bild2.jpg" alt="Bild 2">
+          <p class="caption">Vogel am See — 50×40 cm · Acryl · 180€</p>
+        </div>
 
-    <!-- Pfeile -->
-    <button class="prev" onclick="plusSlides(-1)">❮</button>
-    <button class="next" onclick="plusSlides(1)">❯</button>
+        <div class="carousel-item">
+          <img src="images/bild3.jpg" alt="Bild 3">
+          <p class="caption">Landschaft am Morgen — 60×45 cm · Öl · 250€</p>
+        </div>
 
-  </section>
-
-  <!-- Galerie-Bereich (unverändert) -->
-  <main>
-    <section class="galerie">
-      <h2>Galerie</h2>
-      <div class="galerie-grid">
-        <img src="images/Blume_1.jpg" alt="Blume_1">
-        <img src="images/Vogel_1.jpg" alt="Vogel_1">
-        <img src="images/Blume_3.jpg" alt="Blume_3">
         <!-- weitere Bilder -->
       </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <p><a href="#">Impressum</a></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- CAROUSEL SCRIPT -->
   <script>
-    let slideIndex = 0;
-    showSlide(slideIndex);
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
 
-    function plusSlides(n) {
-      showSlide(slideIndex += n);
-    }
+    let index = 0;
 
-    function showSlide(n) {
-      let slides = document.getElementsByClassName("slide");
-
-      if (n >= slides.length) { slideIndex = 0; }
-      if (n < 0) { slideIndex = slides.length - 1; }
-
-      for (let s of slides) {
-        s.classList.remove("active");
+    nextBtn.addEventListener('click', () => {
+      const itemWidth = document.querySelector('.carousel-item').offsetWidth + 20;
+      if ((index + 1) * itemWidth < track.scrollWidth) {
+        index++;
+        track.style.transform = `translateX(-${index * itemWidth}px)`;
       }
+    });
 
-      slides[slideIndex].classList.add("active");
-    }
+    prevBtn.addEventListener('click', () => {
+      const itemWidth = document.querySelector('.carousel-item').offsetWidth + 20;
+      if (index > 0) {
+        index--;
+        track.style.transform = `translateX(-${index * itemWidth}px)`;
+      }
+    });
   </script>
 
 </body>
