@@ -170,10 +170,30 @@ body {
   transition: transform 0.4s ease;
   padding: 0 40px;
 }
+/* Bild-Beschriftung */
+.img-text {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.img-text h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.img-text p {
+  margin: 3px 0 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
 
 /* Jedes Bild-Element */
 .carousel-item {
   flex: 0 0 auto;
+  width: auto;
 }
 
 .carousel-item img {
@@ -262,5 +282,61 @@ footer a {
   text-decoration: none;
   color: #333;
 }
+
+/* ----- MOBIL: Bilder untereinander ----- */
+@media (max-width: 768px) {
+  .carousel-container {
+    display: none; /* Carousel aus */
+  }
+
+  .mobile-gallery {
+    display: block;
+  }
+
+  .mobile-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+}
+
+/* PC: mobile-gallery ausblenden */
+@media (min-width: 769px) {
+  .mobile-gallery {
+    display: none;
+  }
+}
+
+/* ----- NAVBAR: Hamburger Menü ----- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
 
 
