@@ -147,6 +147,82 @@ body {
   }
 }
 
+
+/* ────────────────────────────────────────────── */
+/* Carousel */
+/* ────────────────────────────────────────────── */
+
+.carousel-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s ease;
+}
+
+.carousel-item {
+  min-width: calc(33.333% - 20px); /* 3 Bilder nebeneinander */
+}
+
+.carousel-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.caption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  font-size: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .carousel-item {
+    min-width: calc(50% - 20px); /* 2 Bilder */
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-item {
+    min-width: 100%; /* 1 Bild */
+  }
+}
+
 /* ────────────────────────────────────────────── */
 /* GALERIE (unverändert) */
 /* ────────────────────────────────────────────── */
@@ -182,3 +258,4 @@ footer a {
   text-decoration: none;
   color: #333;
 }
+
