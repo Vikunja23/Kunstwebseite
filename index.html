@@ -3,40 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Künstlerin XY</title>
+  <title>Natalia – Galerie</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header>
+  <!-- NEUER HEADER -->
+  <header class="header">
     <nav class="navbar">
-      <ul>
-        <li><a href="kategorie.html">Bilder nach Kategorie</a></li>
-        <li><a href="ueber.html">Über die Künstlerin</a></li>
-        <li><a href="#">Kontakt</a></li>
+      <a href="index.html" class="logo">NATALIA</a>
+
+      <ul class="nav-links">
+        <li><a href="ueber.html">Über mich</a></li>
+        <li><a href="kategorien.html">Kategorien</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="auftrag.html">Auftrag</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero-Bereich -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Willkommen in Natalia Schwancks Galerie</h1>
+  <!-- NEUE SLIDESHOW (anstatt Hero) -->
+  <section class="slideshow">
+
+    <div class="slide active">
+      <img src="images/Blume_1.jpg" alt="Blume_1">
+      <div class="caption">
+        <h3>Blume_1</h3>
+        <p>70×50 cm · Öl auf Leinwand · 220€</p>
+      </div>
     </div>
+
+    <div class="slide">
+      <img src="images/Vogel_1.jpg" alt="Vogel_1">
+      <div class="caption">
+        <h3>Vogel_1</h3>
+        <p>50×40 cm · Acryl · 180€</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="images/Blume_3.jpg" alt="Blume_3">
+      <div class="caption">
+        <h3>Blume_3</h3>
+        <p>60×45 cm · Öl · 250€</p>
+      </div>
+    </div>
+
+    <!-- Pfeile -->
+    <button class="prev" onclick="plusSlides(-1)">❮</button>
+    <button class="next" onclick="plusSlides(1)">❯</button>
+
   </section>
 
-  <!-- Galerie-Bereich -->
+  <!-- Galerie-Bereich (unverändert) -->
   <main>
     <section class="galerie">
       <h2>Galerie</h2>
       <div class="galerie-grid">
-        <a href="images/bild1.jpg" data-lightbox="galerie" data-title="Titel: Sonnenuntergang, Größe: 30x40 cm, Öl auf Leinwand">
-        <img src="images/bild1.jpg" alt="Sonnenuntergang" width="300" />
-        </a>
-        <img src="images/bild2.jpg" alt="Bild 2">
-        <img src="images/bild3.jpg" alt="Bild 3">
+        <img src="images/Blume_1.jpg" alt="Blume_1">
+        <img src="images/Vogel_1.jpg" alt="Vogel_1">
+        <img src="images/Blume_3.jpg" alt="Blume_3">
         <!-- weitere Bilder -->
       </div>
     </section>
@@ -46,12 +72,29 @@
   <footer>
     <p><a href="#">Impressum</a></p>
   </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+  <!-- Slideshow Script -->
+  <script>
+    let slideIndex = 0;
+    showSlide(slideIndex);
+
+    function plusSlides(n) {
+      showSlide(slideIndex += n);
+    }
+
+    function showSlide(n) {
+      let slides = document.getElementsByClassName("slide");
+
+      if (n >= slides.length) { slideIndex = 0; }
+      if (n < 0) { slideIndex = slides.length - 1; }
+
+      for (let s of slides) {
+        s.classList.remove("active");
+      }
+
+      slides[slideIndex].classList.add("active");
+    }
+  </script>
+
 </body>
 </html>
-
-
-
-
-
-
