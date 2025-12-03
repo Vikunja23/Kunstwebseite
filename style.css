@@ -6,28 +6,54 @@ body {
   color: #333;
 }
 
-/* Navigation */
-.navbar {
-  background-color: #222;
-  padding: 1rem;
-}
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-.navbar li {
-  margin: 0 1rem;
-}
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+/* ────────────────────────────────────────────── */
+/* NEUER HEADER + NAVIGATION */
+/* ────────────────────────────────────────────── */
+
+.header {
+  background-color: white;
+  padding: 15px 40px;
+  border-bottom: 1px solid #eee;
 }
 
-/* Hero-Bereich */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Georgia", serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: black;
+}
+
+/* ────────────────────────────────────────────── */
+/* HERO-BEREICH (unverändert) */
+/* ────────────────────────────────────────────── */
+
 .hero {
   background-image: url('images/hero.jpg');
   background-size: cover;
@@ -44,7 +70,87 @@ body {
   text-align: center;
 }
 
-/* Galerie */
+/* ────────────────────────────────────────────── */
+/* SLIDESHOW (neu hinzugefügt) */
+/* ────────────────────────────────────────────── */
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+  animation: slideIn 0.6s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  height: 450px; /* einheitliche Höhe */
+  object-fit: cover; /* kein Verzerren */
+  width: auto;
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.caption {
+  margin-top: 12px;
+}
+
+.caption h3 {
+  margin: 4px 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.caption p {
+  color: #555;
+  font-size: 14px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background: white;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .slide img {
+    height: 320px;
+  }
+}
+
+/* ────────────────────────────────────────────── */
+/* GALERIE (unverändert) */
+/* ────────────────────────────────────────────── */
+
 .galerie {
   padding: 2rem;
   text-align: center;
@@ -62,7 +168,10 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Footer */
+/* ────────────────────────────────────────────── */
+/* FOOTER (unverändert) */
+/* ────────────────────────────────────────────── */
+
 footer {
   background-color: #f2f2f2;
   padding: 1rem;
@@ -73,66 +182,3 @@ footer a {
   text-decoration: none;
   color: #333;
 }
-
-/* Kategorie-Kacheln */
-
-.kachel-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
-  padding: 40px;
-}
-
-.kachel {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  text-align: center;
-}
-
-.kachel:hover {
-  transform: scale(1.03);
-}
-
-.kachel img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.kachel h3 {
-  margin: 15px 0;
-  font-size: 1.2rem;
-}
-/* Horizontale Galerie */
-
-.horiz-gallery {
-  display: flex;
-  gap: 25px;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  padding: 30px;
-}
-
-.horiz-gallery .bild {
-  flex: 0 0 300px;
-  scroll-snap-align: start;
-  text-align: center;
-}
-
-.horiz-gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.horiz-gallery p {
-  margin-top: 10px;
-  color: #333;
-}
-
