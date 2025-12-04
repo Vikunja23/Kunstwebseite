@@ -1,134 +1,138 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Natalia – Galerie</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NATALIA – Kunst</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <nav class="navbar">
-      <a href="index.html" class="logo">NATALIA SCHWANCK</a>
-
-      <ul class="nav-links">
-        <li><a href="ueber.html">Über mich</a></li>
-        <li><a href="kategorien.html">Kategorien</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="auftrag.html">Auftrag</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- NEUES MULTI-CAROUSEL -->
-    <section class="carousel-section">
-    <h2>Galerie</h2>
-
-    <div class="carousel-container">
-      <button class="carousel-btn prev">&#10094;</button>
-
-      <div class="carousel-track">
-
-        <div class="carousel-item">
-          <img src="images/Vogel_1.jpg" alt="Vogel 1">
-          <div class="img-text">
-            <h3>Roter Papagei</h3>
-            <p>50x50 auf Öl. Verkauf möglich, anfrage unter "Kontakt"</p>
-          </div>
-        </div>
-        
-        <div class="carousel-item">
-          <img src="images/Blume_1.jpg" alt="Blume 1">
-          <div class="img-text">
-            <h3>Paradiesvogelblume</h3>
-            <p>Beschreibung zum ersten Blumenbild.</p>
-          </div>
-        </div>
-        
-        <div class="carousel-item">
-          <img src="images/Blume_2.jpg" alt="Blume 2">
-          <div class="img-text">
-            <h3>Kalter Frühling</h3>
-            <p>Beschreibung zur zweiten Blume.</p>
-          </div>
-        </div>
-        
-        <div class="carousel-item">
-          <img src="images/Blume_3.jpg" alt="Blume 3">
-          <div class="img-text">
-            <h3>Der Sonne entgegen</h3>
-            <p>xxx</p>
-          </div>
-        </div>
-        
-        <div class="carousel-item">
-          <img src="images/Vogel_3.jpg" alt="Vogel 3">
-          <div class="img-text">
-            <h3>Prächtig</h3>
-            <p>Beschreibung zum dritten Vogelbild.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <button class="carousel-btn next">&#10095;</button>
+<header class="header">
+    <div class="logo">
+        <a href="index.html">NATALIA</a>
     </div>
-  </section>
-  <!-- FOOTER -->
-  <footer>
-    <p><a href="#">Impressum</a></p>
-  </footer>
 
-  <!-- CAROUSEL SCRIPT -->
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+
+    <nav class="desktop-nav">
+        <a href="#">Über mich</a>
+        <a href="#">Kategorien</a>
+        <a href="#">Kontakt</a>
+        <a href="#">Auftrag</a>
+        <a href="impressum.html">Impressum</a>
+    </nav>
+</header>
+
+<div id="mobileMenu" class="mobile-nav">
+    <a href="#">Über mich</a>
+    <a href="#">Kategorien</a>
+    <a href="#">Kontakt</a>
+    <a href="#">Auftrag</a>
+    <a href="impressum.html">Impressum</a>
+</div>
+
+<!-- PC SLIDESHOW -->
+<div class="slideshow-container">
+
+    <div class="slide">
+        <img src="images/Vogel_1.jpg" alt="Vogel 1">
+        <div class="caption-title">VOGEL 1</div>
+        <div class="caption-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="slide">
+        <img src="images/Blume_1.jpg" alt="Blume 1">
+        <div class="caption-title">BLUME 1</div>
+        <div class="caption-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="slide">
+        <img src="images/Blume_3.jpg" alt="Blume 3">
+        <div class="caption-title">BLUME 3</div>
+        <div class="caption-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="slide">
+        <img src="images/Vogel_3.jpg" alt="Vogel 3">
+        <div class="caption-title">VOGEL 3</div>
+        <div class="caption-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="slide">
+        <img src="images/Blume_2.jpg" alt="Blume 2">
+        <div class="caption-title">BLUME 2</div>
+        <div class="caption-info">Maße &amp; Preis</div>
+    </div>
+
+    <span class="arrow left" onclick="changeSlide(-1)">❮</span>
+    <span class="arrow right" onclick="changeSlide(1)">❯</span>
+</div>
+
+<!-- MOBILE GALLERY -->
+<div class="mobile-gallery">
+
+    <div class="mobile-item">
+        <img src="images/Vogel_1.jpg" alt="Vogel 1">
+        <div class="mobile-title">VOGEL 1</div>
+        <div class="mobile-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="mobile-item">
+        <img src="images/Blume_1.jpg" alt="Blume 1">
+        <div class="mobile-title">BLUME 1</div>
+        <div class="mobile-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="mobile-item">
+        <img src="images/Blume_3.jpg" alt="Blume 3">
+        <div class="mobile-title">BLUME 3</div>
+        <div class="mobile-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="mobile-item">
+        <img src="images/Vogel_3.jpg" alt="Vogel 3">
+        <div class="mobile-title">VOGEL 3</div>
+        <div class="mobile-info">Maße &amp; Preis</div>
+    </div>
+
+    <div class="mobile-item">
+        <img src="images/Blume_2.jpg" alt="Blume 2">
+        <div class="mobile-title">BLUME 2</div>
+        <div class="mobile-info">Maße &amp; Preis</div>
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
 <script>
-  /* -------- CAROUSEL LOOP -------- */
-  const track = document.querySelector('.carousel-track');
-  const items = Array.from(document.querySelectorAll('.carousel-item'));
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
+/* MOBILE MENU */
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
 
-  let index = 0;
+/* SLIDESHOW */
+let slideIndex = 0;
+showSlide();
 
-  function update() {
-    const width = items[0].offsetWidth + 20;
-    track.style.transform = `translateX(-${index * width}px)`;
-  }
+function changeSlide(n) {
+    slideIndex += n;
+    showSlide();
+}
 
-  nextBtn.addEventListener("click", () => {
-    index = (index + 1) % items.length; // perfekter Loop
-    update();
-  });
+function showSlide() {
+    const slides = document.getElementsByClassName("slide");
 
-  prevBtn.addEventListener("click", () => {
-    index = (index - 1 + items.length) % items.length; // nach links loop
-    update();
-  });
+    if (slideIndex >= slides.length) slideIndex = 0;
+    if (slideIndex < 0) slideIndex = slides.length - 1;
 
-  /* -------- HAMBURGER MENÜ -------- */
-  const ham = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
+    for (let s of slides) s.style.display = "none";
 
-  ham.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
+    slides[slideIndex].style.display = "block";
+}
 </script>
 
-<div class="mobile-gallery">
-  <img src="images/Vogel_1.jpg" alt="Vogel 1">
-  <img src="images/Blume_1.jpg" alt="Blume 1">
-  <img src="images/Blume_2.jpg" alt="Blume 2">
-  <img src="images/Blume_3.jpg" alt="Blume 3">
-  <img src="images/Vogel_3.jpg" alt="Vogel 3">
-</div>  
-  
 </body>
 </html>
-
-
-
-
-
-
-
