@@ -109,22 +109,71 @@
 </div>
 
 <script>
-/* MOBILE MENU */
+/* MOBILE MENU TOGGLE */
 function toggleMenu() {
-    const menu = document.getElementById("mobileMenu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
-/* DESKTOP SCROLLER */
-function scrollGallery(direction) {
-    const track = document.querySelector(".gallery-track");
-    const scrollAmount = track.clientWidth / 3; 
-    track.scrollBy({
-        left: direction * scrollAmount,
-        behavior: "smooth"
-    });
-}
+/* DESKTOP CAROUSEL CONTROLS (3-visible, clipped right item, looping) */
+(function() {
+  const track = document.querySelector('.gallery-track');
+  if (!track) return;
+
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const prev = document.querySelector('.arrow.left');
+  const next = document.querySelector('.arrow.right');
+
+  let index = 0;
+
+  // compute step width (one item width + gap). We recompute on resize.
+  function getStep() {
+    const style = getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 20;
+    const item = items[0];
+    const itemWidth = item.getBoundingClientRect().width;
+    return itemWidth + gap;
+  }
+
+  function update() {
+    const step = getStep();
+    // translate so that index is the left-most visible item
+    track.style.transform = `translateX(-${index * step}px)`;
+  }
+
+  // next (right)
+  function goNext() {
+    index = (index + 1) % items.length;
+    update();
+  }
+
+  // prev (left)
+  function goPrev() {
+    index = (index - 1 + items.length) % items.length;
+    update();
+  }
+
+  // attach handlers and keyboard support
+  if (next) next.addEventListener('click', goNext);
+  if (prev) prev.addEventListener('click', goPrev);
+
+  window.addEventListener('resize', () => {
+    // keep current view stable on resize
+    update();
+  });
+
+  // allow arrow keys
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goNext();
+    if (e.key === 'ArrowLeft') goPrev();
+  });
+
+  // initial positioning
+  update();
+})();
 </script>
 
 </body>
 </html>
+
