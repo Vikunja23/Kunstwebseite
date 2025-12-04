@@ -3,6 +3,7 @@
 /* ------------------------ */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
+
 body {
     margin: 0;
     padding: 0;
@@ -11,8 +12,11 @@ body {
     color: #222;
 }
 
-/* Ensure images default */
-img { display: block; max-width: 100%; }
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
 /* ------------------------ */
 /*   HEADER & NAVIGATION    */
@@ -28,26 +32,28 @@ img { display: block; max-width: 100%; }
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 100;
 }
 
-/* logo container keeps inside viewport */
-.logo { flex: 0 0 auto; }
+.logo {
+    flex: 0 0 auto;
+}
+
 .logo a {
     text-decoration: none;
     font-size: 24px;
-    letter-spacing: 2px;
     font-weight: 700;
+    letter-spacing: 2px;
     color: #000;
 }
 
-/* desktop nav sits right and will hide on mobile */
+/* Desktop Nav */
 .desktop-nav {
     display: flex;
-    gap: 22px;
     align-items: center;
-    margin-left: 16px;
+    gap: 22px;
 }
+
 .desktop-nav a {
     text-decoration: none;
     color: #000;
@@ -55,34 +61,38 @@ img { display: block; max-width: 100%; }
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-.desktop-nav a:hover { text-decoration: underline; }
 
-/* burger icon visible only on small screens */
+.desktop-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile burger icon */
 .menu-icon {
     display: none;
     cursor: pointer;
     font-size: 28px;
-    line-height: 1;
+    user-select: none;
 }
 
-/* mobile menu (hidden by default) - fixed under header */
+/* Mobile menu panel */
 .mobile-nav {
     display: none;
+    flex-direction: column;
     position: fixed;
-    top: 58px; /* will align under header */
+    top: 58px;
     left: 0;
     right: 0;
-    background: #fff;
-    z-index: 60;
     padding: 14px 18px;
+    background: #fff;
+    z-index: 120;
     box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
+
 .mobile-nav a {
-    display: block;
-    padding: 8px 0;
-    color: #000;
-    text-decoration: none;
+    padding: 10px 0;
     font-weight: 600;
+    text-decoration: none;
+    color: #000;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -91,81 +101,69 @@ img { display: block; max-width: 100%; }
 /*   DESKTOP GALLERY        */
 /* ------------------------ */
 
-/* centered content area but full-bleed feel thanks to item sizing */
 .gallery-wrapper {
-    margin: 36px auto;
     width: 100%;
     max-width: 1300px;
+    margin: 36px auto;
     padding: 0 18px;
     position: relative;
-    overflow: hidden; /* crucial: hides clipped right image */
+    overflow: hidden; /* wichtig für abgeschnittenes rechtes Bild */
 }
 
-/* the track is a flex-row that we move with transform */
 .gallery-track {
     display: flex;
     gap: 20px;
-    transition: transform 450ms cubic-bezier(.22,.9,.36,1);
+    transition: transform 0.45s cubic-bezier(.22,.9,.36,1);
     will-change: transform;
-    align-items: start;
-    /* hide native scrollbar */
     scrollbar-width: none;
-    -ms-overflow-style: none;
 }
 .gallery-track::-webkit-scrollbar { display: none; }
 
-/* each item takes 1/3 of visible container (so 3 visible at once) */
 .gallery-item {
-    flex: 0 0 calc((100% - 40px) / 3); /* subtract gap space */
-    scroll-snap-align: start;
+    flex: 0 0 calc((100% - 40px) / 3); /* 3 Bilder sichtbar */
     display: flex;
     flex-direction: column;
+    scroll-snap-align: start;
 }
 
-/* image same height, width fills available flex-basis but preserved via object-fit */
 .gallery-item img {
-    height: 500px;          /* your requested fixed height */
+    height: 500px;
     width: 100%;
-    object-fit: cover;      /* crop sides if needed -> creates artist look */
+    object-fit: cover; /* Profi-Cut */
     border-radius: 6px;
 }
 
-/* captions left-aligned inside item */
 .caption-title {
     margin-top: 10px;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #111;
 }
+
 .caption-info {
-    margin-top: 8px;
+    margin-top: 6px;
     font-size: 14px;
     color: #555;
 }
 
-/* ARROWS - clickable and above track */
+/* Arrows */
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 10px;
-    font-size: 28px;
-    cursor: pointer;
-    user-select: none;
     background: rgba(255,255,255,0.9);
+    padding: 10px;
     border-radius: 50%;
+    cursor: pointer;
+    font-size: 28px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    z-index: 70;
+    user-select: none;
+    z-index: 80;
 }
+
 .arrow.left { left: 12px; }
 .arrow.right { right: 12px; }
-
-/* smaller arrow on tiny screens */
-@media (max-width: 420px) {
-    .arrow { font-size: 22px; padding: 8px; }
-}
 
 /* ------------------------ */
 /*   MOBILE GALLERY         */
@@ -173,24 +171,28 @@ img { display: block; max-width: 100%; }
 
 .mobile-gallery {
     display: none;
-    padding: 20px;
+    padding: 18px;
 }
-.mobile-item { margin-bottom: 28px; }
+
+.mobile-item {
+    margin-bottom: 32px;
+}
+
 .mobile-item img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
     border-radius: 6px;
 }
+
 .mobile-title {
     margin-top: 10px;
-    text-align: left;
-    font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
+    font-weight: 700;
 }
+
 .mobile-info {
     margin-top: 6px;
+    font-size: 14px;
     color: #555;
 }
 
@@ -199,15 +201,40 @@ img { display: block; max-width: 100%; }
 /* ------------------------ */
 
 @media (max-width: 900px) {
-    /* hide desktop nav, show burger */
-    .desktop-nav { display: none; }
-    .menu-icon { display: block; }
 
-    /* hide desktop gallery, show mobile gallery */
-    .gallery-wrapper { display: none; }
-    .mobile-gallery { display: block; }
+    /* Header compact */
+    .header {
+        padding: 12px 12px;
+    }
 
-    /* position header padding smaller so it doesn't overflow on small screens */
-    .header { padding: 12px 12px; }
-    .logo a { font-size: 20px; }
+    .logo a {
+        font-size: 20px;
+    }
+
+    /* Desktop nav → off */
+    .desktop-nav {
+        display: none;
+    }
+
+    /* Burger → on */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Desktop gallery off, mobile on */
+    .gallery-wrapper {
+        display: none;
+    }
+
+    .mobile-gallery {
+        display: block;
+    }
+}
+
+/* smaller arrow on small phones */
+@media (max-width: 420px) {
+    .arrow {
+        font-size: 22px;
+        padding: 8px;
+    }
 }
