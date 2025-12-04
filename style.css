@@ -29,7 +29,7 @@ img {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
 }
 
 .logo a {
@@ -69,7 +69,8 @@ img {
     background: #fff;
     padding: 20px;
     gap: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    z-index: 999;
 }
 
 .mobile-nav a {
@@ -79,39 +80,55 @@ img {
 }
 
 /* ------------------------ */
-/*    SLIDESHOW (DESKTOP)   */
+/*   DESKTOP GALLERY        */
 /* ------------------------ */
 
-.slideshow-container {
+.gallery-wrapper {
+    margin-top: 40px;
     width: 100%;
-    max-width: 1400px;
-    margin: 40px auto;
+    overflow: hidden;
     position: relative;
-    display: block;
 }
 
-.slide img {
-    height: 500px;       /* gleiche Höhe */
-    object-fit: cover;   /* schneidet korrekt */
+.gallery-track {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
 }
 
-.slide {
-    display: none;
-    position: relative;
+.gallery-track::-webkit-scrollbar {
+    display: none; /* Chrome */
+}
+
+.gallery-item {
+    flex: 0 0 calc(100% / 3); /* drei Bilder gleichzeitig sichtbar */
+    scroll-snap-align: start;
+    padding-right: 10px; /* kleiner Abstand rechts */
+    box-sizing: border-box;
+}
+
+.gallery-item img {
+    height: 500px;
+    object-fit: cover;  /* Abgeschnitten-Look */
+    width: 100%;
 }
 
 .caption-title {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 22px;
-    letter-spacing: 1px;
+    text-align: left;
+    font-size: 20px;
     font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
 }
 
 .caption-info {
-    text-align: center;
+    text-align: left;
     font-size: 15px;
-    opacity: 0.8;
+    opacity: 0.75;
+    margin-bottom: 12px;
 }
 
 /* ARROWS */
@@ -123,8 +140,9 @@ img {
     font-size: 34px;
     cursor: pointer;
     user-select: none;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.7);
     border-radius: 50%;
+    z-index: 15;
 }
 
 .arrow.left {
@@ -135,7 +153,7 @@ img {
 }
 
 .arrow:hover {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
 }
 
 /* ------------------------ */
@@ -171,7 +189,7 @@ img {
 
 @media (max-width: 900px) {
 
-    /* Desktop Menü verschwinden */
+    /* Desktop Menü aus */
     .desktop-nav {
         display: none;
     }
@@ -180,12 +198,12 @@ img {
         display: block;
     }
 
-    /* Slideshow PC ausblenden */
-    .slideshow-container {
+    /* Desktop Galerie aus */
+    .gallery-wrapper {
         display: none;
     }
 
-    /* Mobile Gallery aktivieren */
+    /* mobile aktiv */
     .mobile-gallery {
         display: block;
     }
