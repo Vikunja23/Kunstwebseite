@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galerie</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header">
+  <nav class="navbar">
+    <a href="index.html" class="logo">NATALIA</a>
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="#">Galerie ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="galerie.html?kat=blumen">Blumen</a></li>
+          <li><a href="galerie.html?kat=landschaften">Landschaften</a></li>
+          <li><a href="galerie.html?kat=tiere">Tiere</a></li>
+          <li><a href="galerie.html?kat=portraits">Portraits</a></li>
+          <li><a href="galerie.html?kat=besonderes">Besonderes</a></li>
+        </ul>
+      </li>
+      <li><a href="ueber.html">Über mich</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="auftrag.html">Auftrag</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="galerie-page">
+
+  <h1 id="galerie-titel"></h1>
+
+  <!-- DESKTOP KARUSSELL -->
+  <section id="carousel" class="carousel">
+      <button id="prevBtn" class="arrow">❮</button>
+      <div id="carousel-track" class="carousel-track"></div>
+      <button id="nextBtn" class="arrow">❯</button>
+  </section>
+
+  <!-- MOBILE GRID -->
+  <section id="mobile-grid" class="mobile-grid"></section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
