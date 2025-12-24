@@ -290,4 +290,7 @@ img {
         padding: 8px;
     }
 }
+.mobile-gallery.show { 
+    display: block !important; 
+}
 
