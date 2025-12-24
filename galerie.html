@@ -1,51 +1,76 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galerie</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NATALIA – Kunst</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="header">
-  <nav class="navbar">
-    <a href="index.html" class="logo">NATALIA</a>
-    <ul class="nav-links">
-      <li class="dropdown">
-        <a href="#">Galerie ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="galerie.html?kat=blumen">Blumen</a></li>
-          <li><a href="galerie.html?kat=landschaften">Landschaften</a></li>
-          <li><a href="galerie.html?kat=tiere">Tiere</a></li>
-          <li><a href="galerie.html?kat=portraits">Portraits</a></li>
-          <li><a href="galerie.html?kat=besonderes">Besonderes</a></li>
-        </ul>
-      </li>
-      <li><a href="ueber.html">Über mich</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-      <li><a href="auftrag.html">Auftrag</a></li>
-    </ul>
-  </nav>
+    <div class="logo">
+        <a href="index.html">NATALIA</a>
+    </div>
+
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+
+    <nav class="desktop-nav">
+        <a href="#">Über mich</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="#">Kontakt</a>
+        <a href="#">Auftrag</a>
+        <a href="impressum.html">Impressum</a>
+    </nav>
 </header>
 
-<main class="galerie-page">
+<div id="mobileMenu" class="mobile-nav">
+    <a href="#">Über mich</a>
+    <a href="#">Kategorien</a>
+    <a href="#">Kontakt</a>
+    <a href="#">Auftrag</a>
+    <a href="impressum.html">Impressum</a>
+</div>
+<div class="mobile-gallery" id="mobileGallery"></div>
+<script>
 
-  <h1 id="galerie-titel"></h1>
+  /* MOBILE MENU TOGGLE */
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+/* MOBILE GALLERY AUTO-GENERATION */
+(function() {
 
-  <!-- DESKTOP KARUSSELL -->
-  <section id="carousel" class="carousel">
-      <button id="prevBtn" class="arrow">❮</button>
-      <div id="carousel-track" class="carousel-track"></div>
-      <button id="nextBtn" class="arrow">❯</button>
-  </section>
+    const images = [
+        { src: "images/Vogel_1.jpg", title: "VOGEL 1", info: "Maße & Preis" },
+        { src: "images/Blume_1.jpg", title: "BLUME 1", info: "Maße & Preis" },
+        { src: "images/Blume_3.jpg", title: "BLUME 3", info: "Maße & Preis" },
+        { src: "images/Vogel_3.jpg", title: "VOGEL 3", info: "Maße & Preis" },
+        { src: "images/Blume_2.jpg", title: "BLUME 2", info: "Maße & Preis" }
+    ];
 
-  <!-- MOBILE GRID -->
-  <section id="mobile-grid" class="mobile-grid"></section>
+    const container = document.getElementById("mobileGallery");
+    if (!container) return;
 
-</main>
+    images.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "mobile-item";
 
-<script src="script.js"></script>
+        div.innerHTML = `
+            <img src="${item.src}" alt="${item.title}">
+            <div class="mobile-title">${item.title}</div>
+            <div class="mobile-info">${item.info}</div>
+        `;
+
+        container.appendChild(div);
+    });
+
+})();
+</script>
+
 
 </body>
 </html>
+
