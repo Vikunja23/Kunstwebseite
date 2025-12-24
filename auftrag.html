@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auftragsmalerei – Natalia Kunst</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <a href="index.html">NATALIA</a>
+    </div>
+
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+
+    <nav class="desktop-nav">
+        <a href="index.html">Start</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="auftrag.html">Auftrag</a>
+        <a href="#">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+    </nav>
+</header>
+
+<div id="mobileMenu" class="mobile-nav">
+    <a href="index.html">Start</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="auftrag.html">Auftrag</a>
+    <a href="#">Kontakt</a>
+    <a href="impressum.html">Impressum</a>
+</div>
+
+<section class="auftrag-wrapper">
+
+    <h1 class="auftrag-title">Auftragsmalerei</h1>
+
+    <p class="auftrag-text">
+        Du möchtest ein persönliches Kunstwerk, das genau zu dir, deiner Familie oder deinem Zuhause passt?  
+        Ich fertige individuelle Gemälde nach Wunsch an – ob <strong>Portraits von Menschen</strong>, 
+        <strong>Tierportraits</strong> oder <strong>Blumen- und Landschaftsmotive</strong>.  
+        Jedes Werk entsteht in liebevoller Handarbeit und wird nach deinen Vorstellungen gestaltet.
+    </p>
+
+    <p class="auftrag-text">
+        Gemeinsam besprechen wir Motiv, Stil, Farben und Format.  
+        Du kannst mir Fotos schicken oder wir entwickeln eine Idee von Grund auf.  
+        Ich begleite dich durch den gesamten Prozess – vom ersten Entwurf bis zum fertigen Kunstwerk.
+    </p>
+
+    <div class="auftrag-bilder">
+        <div class="auftrag-bild-item">
+            <img src="images/Portrait_1.jpg" alt="Beispiel 1">
+        </div>
+        <div class="auftrag-bild-item">
+            <img src="images/Hund_1.jpg" alt="Beispiel 2">
+        </div>
+        <div class="auftrag-bild-item">
+            <img src="images/Portrait_2.jpg" alt="Beispiel 3">
+        </div>
+    </div>
+
+    <p class="auftrag-text">
+        Wenn du Interesse hast, melde dich gerne über das Kontaktformular oder per E‑Mail.  
+        Ich freue mich darauf, dein persönliches Wunschbild zu gestalten.
+    </p>
+
+</section>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>
